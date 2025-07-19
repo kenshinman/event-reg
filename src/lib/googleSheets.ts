@@ -7,7 +7,7 @@ export async function appendToSheet({
   values,
   tabName,
 }: {
-  values: any[];
+  values: string[];
   tabName: string;
 }) {
   const sheetId = GOOGLE_SHEET_ID;
