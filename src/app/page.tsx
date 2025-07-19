@@ -173,7 +173,7 @@ export default function Home() {
         <main className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 sm:p-12 lg:p-16 flex flex-col gap-4 gap-y-2">
           <form
             onSubmit={handleSubmit}
-            autoComplete="off"
+            autoComplete="false"
             className="flex flex-col gap-8"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -193,7 +193,7 @@ export default function Home() {
                   required
                   className="mt-2 block w-full rounded-md border-gray-500 dark:border-gray-600 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500 h-10 px-2 shadow-md"
                   disabled={submitting}
-                  autoComplete="off"
+                  autoComplete="false"
                 />
                 {errors.firstName && (
                   <p className="text-red-500 text-xs mt-1">
