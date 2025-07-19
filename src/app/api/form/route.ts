@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
 import { getSheetTitle } from '@/lib/googleSheets';
+import { NextResponse } from 'next/server';
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
     const title = await getSheetTitle();
     return NextResponse.json({ title });
