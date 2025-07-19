@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     const values = [timestamp, firstName, lastName, email || '', phone || '', heardFrom || ''];
     await appendToSheet({ values, tabName: today });
     return NextResponse.json({ success: true });
-  } catch (err: any) {
+  } catch (err) {
     console.error('Registration error:', err);
     return NextResponse.json({ error: 'Failed to register, please try again.' }, { status: 500 });
   }
