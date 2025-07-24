@@ -113,6 +113,18 @@ export default function Home() {
     if (Object.keys(errs).length > 0) return;
     setSubmitting(true);
     try {
+      // Generate timestamp and date on client device (local time)
+      const now = new Date();
+      const timestamp = new Intl.DateTimeFormat("en-GB", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      }).format(now);
+      const today = now.toISOString().slice(0, 10); // YYYY-MM-DD
+
       const res = await fetch("/api/register", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -122,6 +134,8 @@ export default function Home() {
           email: form.email,
           phone: form.phone,
           heardFrom: form.heardFrom.join(", "),
+          timestamp: timestamp,
+          today: today,
         }),
       });
       if (res.ok) {
