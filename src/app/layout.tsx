@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Event Registration Form",
+  title: "Awake Canada 2025 - Registration Form",
   description:
-    "Portal registration check-in form for events. Made with Love by Kehinde Orilogbon",
+    "Portal registration check-in form for Awake Canada. Made with Love by Kehinde Orilogbon",
 };
 
 export default function RootLayout({

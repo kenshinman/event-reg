@@ -186,7 +186,7 @@ export default function Home() {
         </button>
         {/* Registration Form */}
         <main className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 lg:p-8 flex flex-col gap-4 gap-y-2 max-w-xl">
-          <header className="w-full flex flex-col justify-center items-center mb-8 px-2 sm:px-4">
+          <header className="w-full flex flex-col justify-center items-center mb-4 px-2 sm:px-4">
             <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
               {formTitle}
             </h1>
@@ -194,7 +194,7 @@ export default function Home() {
               Register for the event
             </p>
           </header>
-          <hr className="border-gray-200 dark:border-gray-700" />
+          <hr className="border-gray-200 dark:border-gray-700 mb-4" />
           <form
             onSubmit={handleSubmit}
             autoComplete="false"
