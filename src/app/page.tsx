@@ -154,27 +154,37 @@ export default function Home() {
     );
   }
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col items-center py-4 px-2 sm:px-6 transition-colors relative">
-      <button
-        aria-label="Toggle light/dark mode"
-        onClick={handleThemeToggle}
-        className="rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 absolute top-4 right-4"
-      >
-        {theme === "dark" ? "🌙" : "☀️"}
-      </button>
+    <div
+      className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col items-center py-4 px-2 sm:px-6 transition-colors relative bg-clip-content bg-cover bg-right-bottom bg-no-repeat"
+      style={{
+        backgroundImage: `url('/awake-canada-bg.png')`,
+        backgroundBlendMode: theme === "dark" ? "multiply" : "normal",
+      }}
+    >
       {/* Header with Theme Toggle */}
-      <div className="mt-16 ">
-        <header className="w-full flex justify-center items-center mb-8 px-2 sm:px-4">
-          <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-            {formTitle}
-          </h1>
-        </header>
+      <div className="my-auto relative">
+        <button
+          aria-label="Toggle light/dark mode"
+          onClick={handleThemeToggle}
+          className="rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 absolute top-4 right-4"
+        >
+          {theme === "dark" ? "🌙" : "☀️"}
+        </button>
         {/* Registration Form */}
-        <main className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 sm:p-12 lg:p-16 flex flex-col gap-4 gap-y-2">
+        <main className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 lg:p-8 flex flex-col gap-4 gap-y-2 max-w-xl">
+          <header className="w-full flex flex-col justify-center items-center mb-8 px-2 sm:px-4">
+            <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+              {formTitle}
+            </h1>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Register for the event
+            </p>
+          </header>
+          <hr className="border-gray-200 dark:border-gray-700" />
           <form
             onSubmit={handleSubmit}
             autoComplete="false"
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-y-4 px-2 sm:px-4"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
@@ -263,7 +273,7 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <label className="block text-lg font-medium text-gray-700 dark:text-gray-200 my-6">
+              <label className="block text-base font-medium text-gray-700 dark:text-gray-200 my-3">
                 How did you hear about this event?{" "}
                 <span className="text-sm">(Select all that apply)</span>
               </label>
@@ -290,7 +300,7 @@ export default function Home() {
                     />
                     <label
                       htmlFor={`heardFrom-${option}`}
-                      className="text-base text-gray-700 dark:text-gray-200"
+                      className="text-sm text-gray-700 dark:text-gray-200"
                     >
                       {option}
                     </label>
@@ -300,7 +310,7 @@ export default function Home() {
             </div>
             <button
               type="submit"
-              className="mt-2 w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-60"
+              className="mt-2 w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:opacity-60 cursor-pointer mb-4"
               disabled={submitting}
             >
               {submitting ? "Registering..." : "Register"}
